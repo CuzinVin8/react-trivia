@@ -1,0 +1,23 @@
+.btnHolder{
+    text-align: center;
+}
+.btnHolder button {
+    background: #4D5B9E;
+    border-radius: 15px;
+    color:#fff;
+    padding:15px 50px;
+    border:none;
+    font-size:20px;
+    cursor:pointer;
+}
+.btnHolder button:hover {
+    background: #424e88;
+}
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+h3 {
+    margin-top: -20px;
+    margin-bottom: 40px;
+}
