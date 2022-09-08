@@ -20,7 +20,11 @@
     color:#293264;
     cursor:pointer;
     white-space: nowrap;
-    transition: all 0.2s linear
+    transition: all 0.2s linear;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 }
 
 .answerHolder input[type="radio"] {
@@ -35,11 +39,15 @@
 }
 
 .answerHolder input[type="radio"]:focus + label {
-    border: 2px dashed #444;
+    border: 1px dashed #444;
 }
 
 .answerHolder label:hover {
     background: #eee;
+}
+
+.answerHolder input[type="radio"]:disabled + label {
+    pointer-events: none;
 }
 
 h4 {
@@ -54,4 +62,15 @@ h4 {
 .qSection {
     padding-bottom:15px;
     border-bottom: 1px solid #DBDEF0;
+}
+
+.answerHolder li input[type="radio"]:checked + label.wFade {
+    background-color:#fc8c8c;
+}
+.answerHolder li input[type="radio"] + label.cGreen {
+    background-color:#94D7A2;
+}
+
+.answerHolder li input[type="radio"] + label.wFade {
+    opacity:0.6;
 }

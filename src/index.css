@@ -3,7 +3,6 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  z-index: 2;
 
   color-scheme: light dark;
   color: #000;
@@ -42,9 +41,10 @@ body {
   background-size:contain;
   background-repeat:no-repeat;
   background-position:100% 0%;
-  position:absolute;
+  position:fixed;
   top:0;
   right:0;
+  z-index:-1;
 }
 .blblob{
   background-image:url(./src/assets/blueblob.svg);
@@ -53,7 +53,26 @@ body {
   background-size:contain;
   background-repeat:no-repeat;
   background-position:0% 100%;
-  position:absolute;
+  position:fixed;
   bottom:0;
   left:0;
+  z-index:-1;
+}
+
+.btnHolder{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btnHolder button {
+  background: #4D5B9E;
+  border-radius: 15px;
+  color:#fff;
+  padding:15px 50px;
+  border:none;
+  font-size:20px;
+  cursor:pointer;
+}
+.btnHolder button:hover {
+  background: #424e88;
 }
