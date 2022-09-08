@@ -1,3 +1,6 @@
+.topPad {
+    padding-top:30px;
+}
 .answerHolder{
     display:flex;
     justify-content: flex-start;
@@ -66,9 +69,11 @@ h4 {
 
 .answerHolder li input[type="radio"]:checked + label.wFade {
     background-color:#fc8c8c;
+    border-color:#fc8c8c;
 }
 .answerHolder li input[type="radio"] + label.cGreen {
     background-color:#94D7A2;
+    border-color:#94D7A2;
 }
 
 .answerHolder li input[type="radio"] + label.wFade {

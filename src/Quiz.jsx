@@ -68,7 +68,7 @@ export default function Quiz(){
         <div>
             {showQs}
             
-            <div className="btnHolder">
+            <div className="btnHolder topPad">
                 <button onClick={isSubmitted ? startOver : subQuiz}>
                 {isSubmitted ? "Play Again" : "Check Answers"}
                 </button>
