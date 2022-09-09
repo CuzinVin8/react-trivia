@@ -6,6 +6,8 @@ import "./Quiz.css"
 export default function Quiz(){
     const [quizQs, setQuizQs] = React.useState([])
     const [isSubmitted, setIsSubmitted] = React.useState(false)
+    const [newBoard, setNewBoard] = React.useState(true)
+    const [errMsg, setErrMsg] = React.useState('')
 
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -27,7 +29,7 @@ export default function Quiz(){
         fetch('https://opentdb.com/api.php?amount=5&category=11&difficulty=hard&type=multiple')
             .then(response => response.json())
             .then(data => fixData(data.results));
-    }, [] )
+    }, [newBoard] )
 
 
     const showQs = quizQs.map(item => {
@@ -44,14 +46,22 @@ export default function Quiz(){
     })
 
     function subQuiz(){
-        var x = document.getElementsByTagName("input");
-        var i;
-        for (i = 0; i < x.length; i++) {
-            x[i].disabled = true;
-        }
-        return (
+        var cnt = document.getElementsByTagName("input");
+        var t, f=0;
+            for (t = 0; t < cnt.length; t++) {
+                cnt[t].checked && f++;
+            }
+        if(f === quizQs.length){
+            var x = document.getElementsByTagName("input");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].disabled = true;
+            }
             setIsSubmitted(true)
-        )
+            setErrMsg(`You got #/${quizQs.length} answers correct`)
+        } else {
+            setErrMsg(`Please answer all ${quizQs.length} questions.`)
+        }
     }
     function startOver(){
         var x = document.getElementsByTagName("input");
@@ -59,9 +69,9 @@ export default function Quiz(){
         for (i = 0; i < x.length; i++) {
             x[i].disabled = false;
         }
-        return (
-            setIsSubmitted(false)
-        )
+        setNewBoard(!newBoard)
+        setErrMsg('')
+        setIsSubmitted(false)
     }
 
     return (
@@ -69,6 +79,7 @@ export default function Quiz(){
             {showQs}
             
             <div className="btnHolder topPad">
+                <div className="subMessage">{errMsg}</div>
                 <button onClick={isSubmitted ? startOver : subQuiz}>
                 {isSubmitted ? "Play Again" : "Check Answers"}
                 </button>

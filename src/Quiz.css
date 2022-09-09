@@ -67,6 +67,12 @@ h4 {
     border-bottom: 1px solid #DBDEF0;
 }
 
+.subMessage {
+    color:#000;
+    font-weight:600;
+    margin-right:40px;
+}
+
 .answerHolder li input[type="radio"]:checked + label.wFade {
     background-color:#fc8c8c;
     border-color:#fc8c8c;
