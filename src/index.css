@@ -48,7 +48,7 @@ body {
   position:fixed;
   top:0;
   right:0;
-  z-index:-1;
+  z-index:1;
 }
 .blblob{
   background-image:url(./src/assets/blueblob.svg);
@@ -60,15 +60,13 @@ body {
   position:fixed;
   bottom:0;
   left:0;
-  z-index:-1;
+  z-index:1;
 }
 
 .btnHolder{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right:40px;
-  margin-left:40px;
 }
 .btnHolder button {
   background: #4D5B9E;
@@ -78,7 +76,14 @@ body {
   border:none;
   font-size:20px;
   cursor:pointer;
+  margin-right:40px;
+  margin-left:40px;
 }
 .btnHolder button:hover {
   background: #424e88;
+}
+
+.App {
+  position: relative;
+  z-index:2;
 }

@@ -116,7 +116,7 @@ export default function Quiz(){
     }
 
     return (
-        <div>
+        <div className="App">
             {aced && <Confetti width={width} height={height} />}
             {showQs}
             
