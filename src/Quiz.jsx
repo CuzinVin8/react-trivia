@@ -3,13 +3,15 @@ import { nanoid } from 'nanoid'
 import Question from './Question'
 import "./Quiz.css"
 import Confetti from 'react-confetti'
+import useWindowSize from 'react-use/lib/useWindowSize'
 
 export default function Quiz(){
     const [quizQs, setQuizQs] = React.useState([])
     const [isSubmitted, setIsSubmitted] = React.useState(false)
     const [newBoard, setNewBoard] = React.useState(true)
     const [errMsg, setErrMsg] = React.useState('')
-    const [score, setScore] = React.useState(0)
+    const [aced, setAced] =  React.useState(false)
+    const { width, height } = useWindowSize()
 
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -45,7 +47,8 @@ export default function Quiz(){
     }
 
     React.useEffect(function() {
-        console.log('api pull')
+        setQuizQs([])
+        //console.log('api pull')
         fetch('https://opentdb.com/api.php?amount=5&category=11&difficulty=hard&type=multiple')
             .then(response => response.json())
             .then(data => fixData(data.results));
@@ -93,7 +96,7 @@ export default function Quiz(){
             }    
             const rights = w;
 
-            rights === quizQs.length && <Confetti />
+            rights === quizQs.length && setAced(true)
 
             setErrMsg(`You got ${rights}/${quizQs.length} answers correct`)
         } else {
@@ -109,10 +112,12 @@ export default function Quiz(){
         setNewBoard(!newBoard)
         setErrMsg('')
         setIsSubmitted(false)
+        setAced(false)
     }
 
     return (
         <div>
+            {aced && <Confetti width={width} height={height} />}
             {showQs}
             
             <div className="btnHolder topPad">

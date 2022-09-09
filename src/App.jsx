@@ -7,8 +7,7 @@ function App() {
   const [startQ, setStartQ] = React.useState(true)
 
   return (
-    //startQ ? <Intro handleClick={setStartQ} /> : <Quiz />
-    <Quiz />
+    startQ ? <Intro handleClick={setStartQ} /> : <Quiz />
   )
 }
 
