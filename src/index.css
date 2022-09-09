@@ -39,7 +39,6 @@ body {
 }
 
 .rtblob{
-  background-image:url(./src/assets/yellowblob.svg);
   height:175px;
   width:175px;
   background-size:contain;
@@ -51,7 +50,6 @@ body {
   z-index:1;
 }
 .blblob{
-  background-image:url(./src/assets/blueblob.svg);
   height:210px;
   width:200px;
   background-size:contain;
