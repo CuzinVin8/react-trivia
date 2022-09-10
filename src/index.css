@@ -85,3 +85,9 @@ body {
   position: relative;
   z-index:2;
 }
+
+@media (max-width:500px){
+  .btnHolder{
+    flex-direction:column;
+  }
+}

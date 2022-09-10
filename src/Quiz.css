@@ -71,6 +71,8 @@ h4 {
     color:#000;
     font-weight:600;
     font-size:20px;
+    margin-top:15px;
+    margin-bottom:15px;
 }
 
 .answerHolder li input[type="radio"]:checked + label.wFade {

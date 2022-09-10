@@ -2,8 +2,6 @@ import React from "react"
 import { nanoid } from 'nanoid'
 import Question from './Question'
 import "./Quiz.css"
-import Confetti from 'react-confetti'
-import useWindowSize from 'react-use/lib/useWindowSize'
 
 export default function Quiz(){
     const [quizQs, setQuizQs] = React.useState([])
@@ -11,7 +9,6 @@ export default function Quiz(){
     const [newBoard, setNewBoard] = React.useState(true)
     const [errMsg, setErrMsg] = React.useState('')
     const [aced, setAced] =  React.useState(false)
-    const { width, height } = useWindowSize()
 
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -49,7 +46,7 @@ export default function Quiz(){
     React.useEffect(function() {
         setQuizQs([])
         //console.log('api pull')
-        fetch('https://opentdb.com/api.php?amount=5&category=11&difficulty=hard&type=multiple')
+        fetch('https://opentdb.com/api.php?amount=10&category=11&difficulty=medium&type=multiple')
             .then(response => response.json())
             .then(data => fixData(data.results));
     }, [newBoard] )
@@ -117,11 +114,10 @@ export default function Quiz(){
 
     return (
         <div className="App">
-            {aced && <Confetti width={width} height={height} />}
             {showQs}
             
             <div className="btnHolder topPad">
-                <div className="subMessage">{errMsg}</div>
+                <div className="subMessage">{aced && '🎉🎉🎉'} {errMsg} {aced && '🎉🎉🎉'}</div>
                 <button onClick={isSubmitted ? startOver : subQuiz}>
                 {isSubmitted ? "Play Again" : "Check Answers"}
                 </button>
