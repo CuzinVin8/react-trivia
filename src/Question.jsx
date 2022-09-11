@@ -11,7 +11,7 @@ export default function Question(props) {
         return (
             <li key={Ans}>
                 <input onChange={() => props.handleClick(Ans, props.correct, props.group)} className="ans" type="radio" id={Ans} name={props.group} value={Ans} />
-                <label className={newClass} htmlFor={Ans}>{Ans.replace(/&quot;/g, '"').replace(/&#039;/g, "'").replace(/&amp;/g, "&").replace(/&egrave;/g, "è")}</label>
+                <div className={newClass}><label htmlFor={Ans}>{Ans.replace(/&quot;/g, '"').replace(/&#039;/g, "'").replace(/&amp;/g, "&").replace(/&egrave;/g, "è")}</label></div>
             </li>
         )
     })
