@@ -11,13 +11,13 @@ export default function Question(props) {
         return (
             <li key={Ans}>
                 <input onChange={() => props.handleClick(Ans, props.correct, props.group)} className="ans" type="radio" id={Ans} name={props.group} value={Ans} />
-                <div className={newClass}><label htmlFor={Ans}>{Ans.replace(/&quot;/g, '"').replace(/&#039;/g, "'").replace(/&amp;/g, "&").replace(/&egrave;/g, "è")}</label></div>
+                <div className={newClass}><label htmlFor={Ans}>{Ans.replace(/&quot;/g, '"').replace(/&#039;/g, "'").replace(/&amp;/g, "&").replace(/&egrave;/g, "è").replace(/&rdquo;/g, '"').replace(/&ldquo;/g, '"').replace(/&aacute;/g, 'á').replace(/&ntilde;/g, 'ñ')}</label></div>
             </li>
         )
     })
     return (
         <div className="qSection">
-            <h4>{props.quest.replace(/&quot;/g, '"').replace(/&#039;/g, "'").replace(/&amp;/g, "&").replace(/&egrave;/g, "è")}</h4>
+            <h4>{props.quest.replace(/&quot;/g, '"').replace(/&#039;/g, "'").replace(/&amp;/g, "&").replace(/&egrave;/g, "è").replace(/&rdquo;/g, '"').replace(/&ldquo;/g, '"').replace(/&aacute;/g, 'á').replace(/&ntilde;/g, 'ñ')}</h4>
             <ul className="answerHolder">
                 {finalAs}
             </ul>
