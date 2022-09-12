@@ -23,6 +23,7 @@ export default function Quiz(){
             shuffleArray(arr[i].incorrect_answers) 
             arr[i].chosen = false
             arr[i].id = nanoid()
+            arr[i].aids = [nanoid(),nanoid(),nanoid(),nanoid()]
         }
         setQuizQs(arr)
     }
@@ -63,7 +64,7 @@ export default function Quiz(){
                 group={item.id}
                 handleClick={handleClick}
                 isChosen={item.chosen}
-
+                newID={item.aids}
             />
         )
     })
